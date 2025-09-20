@@ -1,0 +1,10 @@
+{{ if site.Params.cookieConsent.enabled }}
+  <div class="notice" role="dialog" aria-live="polite" data-cookie-consent>
+    <strong>{{ i18n "cookieTitle" }}</strong>
+    <p>{{ i18n "cookieDescription" }}</p>
+    <div class="header-actions">
+      <button class="button button-primary" type="button" data-consent-accept>{{ i18n "cookieAccept" }}</button>
+      <button class="button button-ghost" type="button" data-consent-decline>{{ i18n "cookieDecline" }}</button>
+    </div>
+  </div>
+{{ end }}

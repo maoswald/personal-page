@@ -1,0 +1,23 @@
+{{ $title := .Title }}
+{{ $siteTitle := site.Params.siteTitle }}
+{{ $description := cond (ne .Params.summary "") .Params.summary site.Params.description }}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ if $title }}{{ $title }} | {{ $siteTitle }}{{ else }}{{ $siteTitle }}{{ end }}</title>
+  <meta name="description" content="{{ $description }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+  <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}index.xml" title="{{ $siteTitle }}" />
+  <link rel="preconnect" href="https://plausible.io" crossorigin />
+  {{ partial "seo/opengraph.html" . }}
+  {{ partial "seo/jsonld.html" . }}
+  {{ with resources.Get "scss/main.scss" }}
+    {{ $style := . | resources.ToCSS (dict "enableSourceMap" (not hugo.IsProduction)) | resources.PostCSS (dict "config" "postcss.config.cjs" "noMap" hugo.IsProduction) }}
+    {{ if hugo.IsProduction }}
+      {{ $style = $style | minify }}
+    {{ end }}
+    {{ $style = $style | fingerprint "sha384" }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous" />
+  {{ end }}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-XmX8Z64KbjDg7sWXBJgp7wa9u0edPFpKnz03Wx/89ZbduCMsZ/HdlIQK5vCk5vZ8" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" integrity="sha384-7UvtTDHkJNNZBwbNgCzxk6wO96RFME5YhQgNzqCzys75kxpt0Y85mkUdYUe8rM6b" crossorigin="anonymous" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />

@@ -1,0 +1,7 @@
+{{ $href := .Get "href" }}
+{{ $label := .Get "label" | default .Inner }}
+{{ if not $href }}{{ errorf "affiliate shortcode requires href" }}{{ end }}
+<span class="affiliate-link">
+  <a href="{{ $href }}" rel="nofollow sponsored noopener" target="_blank">{{ $label }}</a>
+  <small>{{ site.Params.affiliate.disclosureText }}</small>
+</span>
