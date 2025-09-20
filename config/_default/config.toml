@@ -1,0 +1,30 @@
+baseURL = "https://example.com/"
+title = "Aurora Dark Personal Site"
+theme = "aurora-dark"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+paginate = 10
+hasCJKLanguage = false
+enableGitInfo = true
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML"]
+[permalinks]
+  post = "/blog/:slug/"
+  project = "/projects/:slug/"
+  travel = "/travel/:slug/"
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+[security]
+  enableInlineShortcodes = true

@@ -1,0 +1,12 @@
+{{ $title := cond (ne .Title "") (printf "%s | %s" .Title site.Params.siteTitle) site.Params.siteTitle }}
+{{ $description := cond (ne .Params.summary "") .Params.summary site.Params.description }}
+{{ $image := .Params.cover | default "/images/og-default.jpg" }}
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:type" content="{{ if eq .Kind "home" }}website{{ else }}article{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ $image | absURL }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+<meta name="twitter:image" content="{{ $image | absURL }}" />

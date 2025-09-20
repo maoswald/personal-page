@@ -1,0 +1,5 @@
+name = "Aurora Dark"
+author = "Senior Dev"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+min_version = "0.118.0"
