@@ -1,0 +1,29 @@
+{
+  "name": "aurora-dark-site",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "hugo --minify",
+    "dev": "hugo server --bind 0.0.0.0 --disableFastRender",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint . --ext .js,.mjs",
+    "lint:css": "stylelint \"themes/aurora-dark/assets/**/*.scss\"",
+    "format": "prettier --write \"**/*.{js,scss,md,json,html}\"",
+    "test": "node --test \"tests/**/*.mjs\"",
+    "lighthouse": "lighthouse http://localhost:1313 --config-path=tests/lighthouse.config.json"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "lighthouse": "^11.3.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "stylelint-scss": "^6.3.0",
+    "postcss-scss": "^4.0.9"
+  }
+}

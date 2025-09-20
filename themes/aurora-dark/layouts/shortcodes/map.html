@@ -1,0 +1,12 @@
+{{ $centerStr := .Get "center" | default (printf "%f,%f" (index site.Params.map.defaultCenter 0) (index site.Params.map.defaultCenter 1)) }}
+{{ $zoom := .Get "zoom" | default site.Params.map.defaultZoom }}
+{{ $filter := split (.Get "filter") "," }}
+{{ $latlng := split $centerStr "," }}
+{{ $points := slice }}
+{{ range where site.RegularPages "Type" "travel" }}
+  {{ if or (eq (len $filter) 0) (intersect .Params.tags $filter | len | gt 0) }}
+    {{ $points = $points | append (dict "title" .Title "summary" .Summary "permalink" .RelPermalink "gps" .Params.gps) }}
+  {{ end }}
+{{ end }}
+{{ $config := dict "tiles" site.Params.map.tiles "attribution" site.Params.map.attribution "center" (slice (float (index $latlng 0)) (float (index $latlng 1))) "zoom" (int $zoom) "points" $points }}
+<div class="map-container" id="travel-map" data-config='{{ $config | jsonify | safeHTMLAttr }}'></div>
