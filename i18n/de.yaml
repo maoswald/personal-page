@@ -26,8 +26,6 @@
   translation: "Zum Inhalt springen"
 - id: tagCloud
   translation: "Schlagwortwolke"
-- id: subscribeRss
-  translation: "RSS abonnieren"
 - id: formName
   translation: "Name"
 - id: formEmail

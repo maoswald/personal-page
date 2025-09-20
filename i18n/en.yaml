@@ -26,8 +26,6 @@
   translation: "Skip to main content"
 - id: tagCloud
   translation: "Tag cloud"
-- id: subscribeRss
-  translation: "Follow via RSS"
 - id: formName
   translation: "Name"
 - id: formEmail

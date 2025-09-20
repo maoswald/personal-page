@@ -46,9 +46,5 @@ author = "Your Name"
   enable = true
   indexSections = ["post", "project", "travel"]
 
-[rss]
-  ctaText = "Subscribe via RSS to stay updated on cloud, code, and adventures."
-  ctaUrl = "/index.xml"
-
 [performance]
   enablePrefetch = true

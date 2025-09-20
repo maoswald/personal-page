@@ -1,18 +1,16 @@
 <footer class="footer" role="contentinfo">
   <div class="container footer-content">
-    {{ if site.Params.rss.ctaText }}
-      <div class="notice">
-        <p>{{ site.Params.rss.ctaText }} <a href="{{ site.Params.rss.ctaUrl }}">{{ i18n "subscribeRss" }}</a></p>
-      </div>
-    {{ end }}
+
     {{ partial "social-icons.html" . }}
-    <nav aria-label="Footer">
-      <ul style="display:flex;gap:1rem;list-style:none;padding:0;margin:0;flex-wrap:wrap;">
-        {{ range .Site.Menus.footer }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
-      </ul>
-    </nav>
+    {{ with site.Menus.footer }}
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-links">
+          {{ range . }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    {{ end }}
     <p class="footer-meta">&copy; {{ now.Format "2006" }} {{ site.Params.author }} · {{ site.Params.siteTitle }}</p>
   </div>
 </footer>

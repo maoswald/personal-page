@@ -46,12 +46,6 @@ contentDir = "content"
     name = "Privacy"
     url = "/datenschutz/"
     weight = 2
-  [[en.menu.footer]]
-    identifier = "now"
-    name = "Now"
-    url = "/now/"
-    weight = 3
-
 [de]
 languageName = "Deutsch"
 weight = 2
@@ -100,8 +94,4 @@ contentDir = "content/de"
     name = "Datenschutz"
     url = "/de/datenschutz/"
     weight = 2
-  [[de.menu.footer]]
-    identifier = "now"
-    name = "Jetzt"
-    url = "/de/now/"
-    weight = 3
+

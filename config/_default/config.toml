@@ -8,10 +8,10 @@ paginate = 10
 hasCJKLanguage = false
 enableGitInfo = true
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
+  home = ["HTML", "JSON"]
+  section = ["HTML"]
   page = ["HTML"]
-  taxonomy = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
   term = ["HTML"]
 [permalinks]
   post = "/blog/:slug/"
