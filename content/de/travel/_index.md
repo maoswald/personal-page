@@ -12,3 +12,4 @@ Suchbegriff, um passende Geschichten für Ihre nächste Routenplanung zu finden.
 - Die Artikel enthalten Mini-Karten und Vorschläge für nahegelegene Ziele (berechnet via Haversine-Distanz).
 
 Lieber Text statt Karte? Unterhalb der Karte finden Sie eine barrierefreie Liste aller Reiseberichte.
+
