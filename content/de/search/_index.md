@@ -8,4 +8,3 @@ Beginnen Sie zu tippen, um das Wissensarchiv zu filtern. Ergebnisse umfassen Blo
 rektlink zum Original.
 
 Mit den Pfeiltasten (↑/↓) navigieren und mit **Enter** den markierten Eintrag öffnen.
-

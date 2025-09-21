@@ -51,3 +51,9 @@ Archetypes are defined under `archetypes/` to streamline new content creation.
 
 ## Deployment
 The included GitHub Actions workflow installs dependencies, builds the site with `hugo --minify --gc`, and publishes to the `gh-pages` branch. Enable GitHub Pages from that branch in repository settings.
+
+### Deploy on Pull Request approval
+Pull request reviews with an **Approved** state automatically trigger the deployment workflow. The action checks out the head commit of the approved PR, builds the site, and publishes it to `gh-pages/previews/pr-<PR_NUMBER>` while keeping the production build at the repository root. That makes it possible to share a live preview before merging. Once the PR is merged, the regular push-to-`main` deployment overwrites the root of `gh-pages` with the production build and removes the preview folder for that PR.
+
+If your repository uses branch protection or a different default branch, adjust the `if` condition in `.github/workflows/deploy.yml` so that only approved reviews targeting your release branch trigger the preview publication.
+

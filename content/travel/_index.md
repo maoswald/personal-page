@@ -1,6 +1,9 @@
 ---
 title: "Travel Log"
 summary: "Interactive sailing tracks, cultural notes, and waypoints from global explorations."
+url: "/travel/"
+layout: "travel/list"
+
 cascade:
   type: "travel"
 ---

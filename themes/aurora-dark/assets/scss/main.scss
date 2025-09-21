@@ -23,6 +23,8 @@
   --color-link: #7fb0ff;
   --color-success: #1db954;
   --color-warn: #f59e0b;
+  --hero-tech-bg: #071627;
+  --hero-sail-bg: #0e315e;
   --header-height: 4.25rem;
   --radius-lg: 1.25rem;
   --radius-md: 0.75rem;
@@ -114,8 +116,11 @@ header.site-header {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(18px);
-  background: rgba(11, 15, 20, 0.92);
+  background: linear-gradient(90deg, rgba(7, 22, 39, 0.92) 0%, rgba(14, 49, 94, 0.92) 100%);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hero-tech-bg) 88%, transparent) 0%,
+      color-mix(in srgb, var(--hero-sail-bg) 88%, transparent) 100%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 24px rgba(6, 20, 37, 0.4);
 }
 
 header.site-header .container {
@@ -175,9 +180,10 @@ header.site-header .container {
   display: inline-flex;
   gap: 0.25rem;
   align-items: center;
-  background: rgba(10, 37, 64, 0.5);
+  background: rgba(230, 237, 243, 0.08);
   padding: 0.35rem 0.65rem;
   border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .language-switcher a,
@@ -192,43 +198,68 @@ header.site-header .container {
 }
 
 .hero-split {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.5rem;
-  align-items: center;
-  padding: 5rem 0 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
 }
 
-.hero-panel {
-  background: linear-gradient(145deg, rgba(10, 37, 64, 0.85), rgba(14, 58, 140, 0.25));
-  padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+.hero-pane {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5.5rem);
+  color: var(--color-text);
   overflow: hidden;
 }
 
-.hero-panel::after {
+.hero-pane::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(127, 176, 255, 0.2), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  background: radial-gradient(circle at 15% 20%, rgba(127, 176, 255, 0.35), transparent 65%);
   pointer-events: none;
 }
 
-.hero-panel h1,
-.hero-panel h2 {
-  margin-top: 0;
-  font-size: clamp(2.25rem, calc(3vw + 1.5rem), 3.5rem);
+.hero-pane-tech {
+  background: linear-gradient(160deg, #071627 0%, rgba(14, 58, 140, 0.55) 100%);
+  background: linear-gradient(160deg, var(--hero-tech-bg) 0%,
+      color-mix(in srgb, var(--hero-tech-bg) 70%, var(--color-accent-strong)) 100%);
 }
 
-.hero-panel p {
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
+.hero-pane-sailing {
+  background: linear-gradient(200deg, #0e315e 0%, rgba(14, 58, 140, 0.72) 100%);
+  background: linear-gradient(200deg, var(--hero-sail-bg) 0%,
+      color-mix(in srgb, var(--color-accent-strong) 75%, #02060d) 100%);
+}
+
+.hero-pane-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  width: min(90%, 540px);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.hero-pane-inner h1,
+.hero-pane-inner h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, calc(3vw + 1.8rem), 3.75rem);
+  line-height: 1.1;
+}
+
+.hero-pane-inner p {
+  color: color-mix(in srgb, var(--color-text-muted) 85%, var(--color-text));
+  font-size: 1.08rem;
 }
 
 .hero-meta {
-  margin-top: 2rem;
+  margin-top: 0;
   display: grid;
   gap: 0.85rem;
 }
@@ -362,9 +393,12 @@ header.site-header .container {
 
 .footer {
   margin-top: auto;
-  background: rgba(10, 15, 20, 0.95);
+  background: linear-gradient(90deg, rgba(7, 22, 39, 0.96) 0%, rgba(14, 49, 94, 0.96) 100%);
+  background: linear-gradient(90deg, color-mix(in srgb, var(--hero-tech-bg) 92%, transparent) 0%,
+      color-mix(in srgb, var(--hero-sail-bg) 92%, transparent) 100%);
   padding: 1.75rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -12px 30px rgba(3, 9, 18, 0.55);
 }
 
 .footer-content {
@@ -401,7 +435,7 @@ header.site-header .container {
 }
 
 .social-icons a {
-  color: var(--color-text-muted);
+  color: color-mix(in srgb, var(--color-text) 70%, var(--color-text-muted));
   line-height: 1;
 }
 
@@ -604,7 +638,14 @@ blockquote {
 
 @media (max-width: 900px) {
   .hero-split {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .hero-pane {
+    flex: 1 1 100%;
+    min-height: 60vh;
+    padding: clamp(2.75rem, 8vw, 4.5rem) clamp(1.75rem, 7vw, 3.5rem);
   }
 
   header.site-header .container {
@@ -624,8 +665,9 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .hero-panel {
-    padding: 1.75rem;
+.hero-pane {
+    min-height: auto;
+    padding: 2.25rem 1.5rem;
   }
 
   .timeline {

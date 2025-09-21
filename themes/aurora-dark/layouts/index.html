@@ -2,23 +2,27 @@
   {{ $hero := site.Params.hero }}
   {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
   {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
-  <section class="container hero-split" aria-labelledby="identity-heading">
-    <div class="hero-panel">
-      <h1 id="identity-heading">IT Strategy & Cloud Leadership</h1>
-      <p>{{ $tagline }}</p>
-      <div class="hero-meta">
-        <span class="badge">IT Transformation</span>
-        <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
-        <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+  <section class="hero-split" aria-labelledby="identity-heading">
+    <div class="hero-pane hero-pane-tech">
+      <div class="hero-pane-inner">
+        <h1 id="identity-heading">IT Strategy &amp; Cloud Leadership</h1>
+        <p>{{ $tagline }}</p>
+        <div class="hero-meta">
+          <span class="badge">IT Transformation</span>
+          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
+          <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+        </div>
       </div>
     </div>
-    <div class="hero-panel">
-      <h2>Sailing, Travel & Cultural Curiosity</h2>
-      <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
-      <div class="hero-meta">
-        <span class="badge">Sailing log</span>
-        <p>Read the latest travel stories and route experiments on the interactive map.</p>
-        <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+    <div class="hero-pane hero-pane-sailing">
+      <div class="hero-pane-inner">
+        <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
+        <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
+        <div class="hero-meta">
+          <span class="badge">Sailing log</span>
+          <p>Read the latest travel stories and route experiments on the interactive map.</p>
+          <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+        </div>
       </div>
     </div>
   </section>

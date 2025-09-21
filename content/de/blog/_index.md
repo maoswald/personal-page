@@ -15,4 +15,3 @@ rfen.
 
 Jeder Beitrag verweist auf Artefakte – GitHub-Repos, Templates oder Reiserouten –, damit Sie die Ideen für Ihren eigenen Kontex
 t adaptieren können.
-

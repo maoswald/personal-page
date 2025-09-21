@@ -46,6 +46,7 @@ contentDir = "content"
     name = "Privacy"
     url = "/datenschutz/"
     weight = 2
+
 [de]
 languageName = "Deutsch"
 weight = 2
