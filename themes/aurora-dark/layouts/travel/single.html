@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ $mapParams := site.Params.map }}
+  {{ $point := dict "title" .Title "summary" .Summary "city" .Params.city "country" .Params.country "permalink" .RelPermalink "tags" .Params.tags "gps" .Params.gps "map_zoom" .Params.map_zoom }}
+  {{ $others := where (where .Site.RegularPages "Type" "travel") "RelPermalink" "ne" .RelPermalink }}
+  {{ $nearby := slice }}
+  {{ range $others }}
+    {{ $nearby = $nearby | append (dict "title" .Title "summary" .Summary "city" .Params.city "country" .Params.country "permalink" .RelPermalink "tags" .Params.tags "gps" .Params.gps "map_zoom" .Params.map_zoom) }}
+  {{ end }}
+  {{ $config := dict "tiles" $mapParams.tiles "attribution" $mapParams.attribution "center" $mapParams.defaultCenter "zoom" $mapParams.defaultZoom "points" (slice $point) "mode" "detail" "active" $point "nearby" $nearby }}
+  <article class="container section" itemscope itemtype="https://schema.org/Article">
+    <header>
+      <p class="timeline-meta">{{ .Params.visited_at | time.Format "02 Jan 2006" }} · {{ .Params.country }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="section-subtitle">{{ .Summary }}</p>
+      {{ with .Params.hero }}<img src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}
+      <div class="tech-badges">
+        {{ range .Params.tags }}<span class="tag-chip">{{ . }}</span>{{ end }}
+      </div>
+    </header>
+    <div id="travel-map" class="map-container" data-config='{{ $config | jsonify | safeHTMLAttr }}'></div>
+    <p><a class="button button-ghost" href="{{ (printf "/travel/?near=%f,%f" .Params.gps.lat .Params.gps.lng) | relLangURL }}">{{ i18n "mapExplore" }}</a></p>
+    <div class="content" itemprop="articleBody">
+      {{ .Content }}
+    </div>
+    <section aria-labelledby="nearby">
+      <h2 id="nearby" class="section-title">Nearby destinations</h2>
+      <ul data-nearby-list class="table-style"></ul>
+      <noscript>
+        <p>Enable JavaScript to see nearby destinations. Alternatively, browse the <a href="{{ "/travel/" | relLangURL }}">full travel map</a>.</p>
+      </noscript>
+    </section>
+  </article>
+{{ end }}

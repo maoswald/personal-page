@@ -1,0 +1,4 @@
+baseURL = "https://your-domain.example/"
+
+[minify]
+  minifyOutput = true
