@@ -6,7 +6,6 @@
   <title>{{ if $title }}{{ $title }} | {{ $siteTitle }}{{ else }}{{ $siteTitle }}{{ end }}</title>
   <meta name="description" content="{{ $description }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
-  <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}index.xml" title="{{ $siteTitle }}" />
   <link rel="preconnect" href="https://plausible.io" crossorigin />
   {{ partial "seo/opengraph.html" . }}
   {{ partial "seo/jsonld.html" . }}
