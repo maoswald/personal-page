@@ -3,12 +3,14 @@ name: Deploy Hugo site
 on:
   push:
     branches: [main]
+
   pull_request_review:
     types: [submitted]
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     if: github.event_name == 'push' || (github.event_name == 'pull_request_review' && github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'main')
     steps:
       - name: Checkout
@@ -44,6 +46,7 @@ jobs:
 
       - name: Deploy production
         if: github.event_name == 'push'
+
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,3 +63,4 @@ jobs:
           publish_dir: ./public
           destination_dir: previews/pr-${{ github.event.pull_request.number }}
           keep_files: true
+

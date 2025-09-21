@@ -95,3 +95,4 @@ contentDir = "content/de"
     name = "Datenschutz"
     url = "/de/datenschutz/"
     weight = 2
+
