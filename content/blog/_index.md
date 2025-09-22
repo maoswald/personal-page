@@ -1,11 +1,6 @@
 ---
 title: "Blog"
 summary: "Professional reflections, sailing lessons, and notes from the road."
-<<<<<<< HEAD
-cascade:
-  type: "post"
-=======
->>>>>>> origin/codex/deliver-production-ready-hugo-site-uao56n
 ---
 
 Welcome to the long-form logbook where I pair enterprise cloud work with lessons from life offshore.
