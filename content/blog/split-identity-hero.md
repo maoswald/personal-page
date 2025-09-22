@@ -5,6 +5,7 @@ summary: "Balancing dual storylines for IT leadership and sailing adventures wit
 tags: ["web design", "ux", "dark mode"]
 categories: ["Design"]
 cover: "/images/hero-concept.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

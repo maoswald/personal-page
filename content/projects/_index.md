@@ -1,8 +1,6 @@
 ---
 title: "Projects"
 summary: "Cloud-native experiments and storytelling prototypes that explore how teams work with technology."
-cascade:
-  type: "project"
 ---
 
 Below you will find live sandboxes and case studies that shaped my consulting practice.

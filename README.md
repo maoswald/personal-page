@@ -12,10 +12,10 @@ npm install
 npm run dev
 ```
 
-The development server runs at `http://localhost:1313`. Content changes, SCSS, and JS modules rebuild automatically.
+The development server runs at `http://localhost:1313`. It launches a Sass watcher alongside `hugo server`, so edits to SCSS, content, and JS rebuild automatically.
 
 ## Key Features
-- Premium dark UI with self-hosted Inter and Source Serif Pro fonts, Hugo Pipes SCSS compilation, and autoprefixed CSS.
+- Premium dark UI with self-hosted Inter and Source Serif Pro fonts, an npm-driven Sass compiler, and Hugo Pipes PostCSS processing for autoprefixed CSS.
 - Split hero, sticky navigation, accessible focus management, skip links, and keyboard-friendly controls meeting WCAG 2.1 AA targets.
 - Multi-language support (EN/DE) with translated menus, legal pages, and UI strings.
 - Client-side search powered by Elasticlunr indexing posts, projects, and travel entries.
@@ -25,8 +25,11 @@ The development server runs at `http://localhost:1313`. Content changes, SCSS, a
 - GitHub Actions workflow deploying `public/` to `gh-pages` on pushes to `main`.
 
 ## NPM Scripts
-- `npm run dev` – start Hugo with live reload.
-- `npm run build` – production build with minification.
+- `npm run dev` – watch Sass and run the Hugo dev server in parallel.
+- `npm run serve` – run only the Hugo dev server.
+- `npm run build` – compile Sass then build the production site with minification.
+- `npm run build:css` – one-off Sass compilation.
+- `npm run watch:css` – watch Sass sources and rebuild CSS on change.
 - `npm run lint` – run ESLint and Stylelint.
 - `npm run format` – apply Prettier formatting.
 - `npm run test` – execute Node.js unit tests (haversine utility).
@@ -50,10 +53,9 @@ Archetypes are defined under `archetypes/` to streamline new content creation.
 - To introduce new taxonomies, create configuration files within `config/_default/` and corresponding section templates.
 
 ## Deployment
-The included GitHub Actions workflow installs dependencies, builds the site with `hugo --minify --gc`, and publishes to the `gh-pages` branch. Enable GitHub Pages from that branch in repository settings.
+The included GitHub Actions workflow installs dependencies, runs `npm run build` (compiles Sass and invokes `hugo --minify`), and publishes to the `gh-pages` branch. Enable GitHub Pages from that branch in repository settings.
 
 ### Deploy on Pull Request approval
 Pull request reviews with an **Approved** state automatically trigger the deployment workflow. The action checks out the head commit of the approved PR, builds the site, and publishes it to `gh-pages/previews/pr-<PR_NUMBER>` while keeping the production build at the repository root. That makes it possible to share a live preview before merging. Once the PR is merged, the regular push-to-`main` deployment overwrites the root of `gh-pages` with the production build and removes the preview folder for that PR.
 
 If your repository uses branch protection or a different default branch, adjust the `if` condition in `.github/workflows/deploy.yml` so that only approved reviews targeting your release branch trigger the preview publication.
-

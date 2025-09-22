@@ -1,2 +1,4 @@
 baseURL = "https://your-domain.example/"
-minify = true
+
+[minify]
+  minifyOutput = true

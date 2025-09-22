@@ -5,6 +5,7 @@ summary: "From guardrails to enablement: the practices that keep platform and pr
 tags: ["aws", "cloud", "operating model"]
 categories: ["Cloud"]
 cover: "/images/aws-operating-model.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

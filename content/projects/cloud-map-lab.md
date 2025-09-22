@@ -2,6 +2,7 @@
 title: "Cloud Map Lab"
 date: 2024-06-01
 summary: "An experiment combining AWS CDK, Leaflet, and deck.gl to visualize platform telemetry."
+type: "project"
 repo: "https://github.com/yourhandle/cloud-map-lab"
 tech: ["AWS CDK", "TypeScript", "Leaflet", "deck.gl"]
 status: "alpha"

@@ -2,6 +2,7 @@
 title: "Spiekeroog Soundings"
 date: 2024-03-19
 summary: "Charting shallow banks and testing catamaran maneuvering drills."
+type: "travel"
 country: "Germany"
 city: "Spiekeroog"
 visited_at: 2024-03-12

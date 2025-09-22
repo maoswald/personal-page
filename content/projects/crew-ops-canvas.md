@@ -2,6 +2,7 @@
 title: "Crew Ops Canvas"
 date: 2024-03-12
 summary: "A facilitation toolkit translating sailing rituals into team operating agreements."
+type: "project"
 repo: "https://github.com/yourhandle/crew-ops-canvas"
 tech: ["Hugo", "Netlify", "Figma"]
 status: "beta"

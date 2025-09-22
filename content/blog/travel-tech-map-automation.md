@@ -5,6 +5,7 @@ summary: "Syncing GPS tracks, journal entries, and cultural research into one li
 tags: ["travel", "automation", "maps"]
 categories: ["Travel"]
 cover: "/images/travel-map-automation.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

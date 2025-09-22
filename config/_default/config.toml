@@ -4,9 +4,10 @@ theme = "aurora-dark"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
-paginate = 10
 hasCJKLanguage = false
 enableGitInfo = true
+[pagination]
+  pagerSize = 10
 [outputs]
   home = ["HTML", "JSON"]
   section = ["HTML"]

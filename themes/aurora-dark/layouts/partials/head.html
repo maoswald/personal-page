@@ -6,12 +6,12 @@
   <title>{{ if $title }}{{ $title }} | {{ $siteTitle }}{{ else }}{{ $siteTitle }}{{ end }}</title>
   <meta name="description" content="{{ $description }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
-  <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}index.xml" title="{{ $siteTitle }}" />
   <link rel="preconnect" href="https://plausible.io" crossorigin />
   {{ partial "seo/opengraph.html" . }}
   {{ partial "seo/jsonld.html" . }}
-  {{ with resources.Get "scss/main.scss" }}
-    {{ $style := . | resources.ToCSS (dict "enableSourceMap" (not hugo.IsProduction)) | resources.PostCSS (dict "config" "postcss.config.cjs" "noMap" hugo.IsProduction) }}
+  {{ with resources.Get "css/main.css" }}
+    {{ $postcssOptions := dict "config" "postcss.config.cjs" "noMap" hugo.IsProduction }}
+    {{ $style := . | css.PostCSS $postcssOptions }}
     {{ if hugo.IsProduction }}
       {{ $style = $style | minify }}
     {{ end }}

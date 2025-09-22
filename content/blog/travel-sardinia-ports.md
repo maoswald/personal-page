@@ -5,6 +5,7 @@ summary: "From Olbia to Alghero: cultural stops and crew rituals along the route
 tags: ["travel", "sailing", "culture"]
 categories: ["Travel"]
 cover: "/images/sardinia-route.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

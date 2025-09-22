@@ -2,6 +2,7 @@
 title: "Azores Volcanic Loop"
 date: 2024-05-08
 summary: "Linking São Miguel hot springs with Pico vineyards via island-hopping passages."
+type: "travel"
 country: "Portugal"
 city: "Horta"
 visited_at: 2024-04-28

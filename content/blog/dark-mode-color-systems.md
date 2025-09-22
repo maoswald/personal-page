@@ -5,6 +5,7 @@ summary: "How to build accessible, high-contrast palettes for dark experiences w
 tags: ["web design", "a11y", "design systems"]
 categories: ["Design"]
 cover: "/images/color-system.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

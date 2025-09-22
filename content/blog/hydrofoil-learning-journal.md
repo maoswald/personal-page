@@ -5,6 +5,7 @@ summary: "Applying kaizen principles to master balance, pitch, and patience."
 tags: ["kitesurfing", "learning", "coaching"]
 categories: ["Adventure"]
 cover: "/images/hydrofoil.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

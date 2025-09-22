@@ -2,6 +2,7 @@
 title: "Night Sail into Sognefjord"
 date: 2024-06-28
 summary: "Navigating Norway's fjord lights with a freshly trained crew."
+type: "travel"
 country: "Norway"
 city: "Balestrand"
 visited_at: 2024-06-22

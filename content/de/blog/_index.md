@@ -1,8 +1,6 @@
 ---
 title: "Blog"
 summary: "Fachliche Impulse, Segel-Lektionen und Notizen unterwegs."
-cascade:
-  type: "post"
 ---
 
 Hier sammle ich Langform-Notizen, in denen sich Cloud-Transformation, Design und Seefahrt verbinden.

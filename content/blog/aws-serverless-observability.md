@@ -5,6 +5,7 @@ summary: "Instrumenting event-driven workloads with clear SLOs and actionable al
 tags: ["aws", "cloud", "observability"]
 categories: ["Cloud"]
 cover: "/images/aws-observability.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "Projekte"
 summary: "Cloud-native Experimente und Storytelling-Prototypen, die Zusammenarbeit mit Technologie neu denken."
-cascade:
-  type: "project"
 ---
 
 Hier finden Sie Sandboxes und Fallstudien, die meine Beratungsarbeit geprägt haben.
@@ -14,4 +12,7 @@ rkennen.
 Reisegeschichten dieser Seite ein.
 
 Jede Karte verlinkt GitHub-Repos oder Demos, damit Architektur-Notizen, IaC und UX-Flows nachvollziehbar bleiben.
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/codex/deliver-production-ready-hugo-site-uao56n

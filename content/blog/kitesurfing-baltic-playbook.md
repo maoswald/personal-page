@@ -5,6 +5,7 @@ summary: "Reading tides, timing gusts, and staying safe on the shallow banks of 
 tags: ["kitesurfing", "travel", "safety"]
 categories: ["Adventure"]
 cover: "/images/kitesurf-baltic.svg"
+type: "post"
 affiliate_disclosure: false
 ---
 

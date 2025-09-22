@@ -1,11 +1,9 @@
 ---
 title: "Travel Log"
 summary: "Interactive sailing tracks, cultural notes, and waypoints from global explorations."
+type: "travel"
 url: "/travel/"
 layout: "travel/list"
-
-cascade:
-  type: "travel"
 ---
 
 Launch the map to explore voyages ranging from Baltic sandbanks to Atlantic crossings. Filter by country, tags, or free-text to
