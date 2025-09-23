@@ -1,6 +1,13 @@
 <header class="site-header" role="banner">
   <div class="container">
-    <a class="logo" href="{{ "/" | relLangURL }}">{{ site.Params.siteTitle }}</a>
+    <a class="logo" href="{{ "/" | relLangURL }}">
+      {{ with site.Params.branding }}
+        <span class="logo-first">{{ .firstName }}</span>
+        <span class="logo-last">{{ .lastName }}</span>
+      {{ else }}
+        <span class="logo-last">{{ site.Params.siteTitle }}</span>
+      {{ end }}
+    </a>
     <nav class="nav-main" aria-label="Primary">
       {{ range .Site.Menus.main }}
         <a href="{{ .URL }}" {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>{{ .Name }}</a>
@@ -9,16 +16,17 @@
     <div class="header-actions">
       <div class="language-switcher" role="navigation" aria-label="Language selector">
         {{ $current := . }}
-        {{ range .Site.Languages }}
-          {{ $lang := . }}
+        {{ range $index, $lang := .Site.Languages }}
+          {{ if $index }}<span class="separator" aria-hidden="true">|</span>{{ end }}
+          {{ $label := upper $lang.Lang }}
           {{ if eq $current.Lang $lang.Lang }}
-            <span class="active">{{ $lang.LanguageName }}</span>
+            <span class="active">{{ $label }}</span>
           {{ else }}
             {{ $translations := where $current.AllTranslations "Lang" $lang.Lang }}
             {{ if gt (len $translations) 0 }}
-              {{ with index $translations 0 }}<a href="{{ .RelPermalink }}">{{ $lang.LanguageName }}</a>{{ end }}
+              {{ with index $translations 0 }}<a href="{{ .RelPermalink }}">{{ $label }}</a>{{ end }}
             {{ else }}
-              <a href="{{ (printf "/%s/" $lang.Lang) | relLangURL }}">{{ $lang.LanguageName }}</a>
+              <a href="{{ (printf "/%s/" $lang.Lang) | relLangURL }}">{{ $label }}</a>
             {{ end }}
           {{ end }}
         {{ end }}

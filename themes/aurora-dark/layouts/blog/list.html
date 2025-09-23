@@ -24,8 +24,9 @@
         </select>
       </label>
     </form>
+    {{ $paginator := .Paginate (.RegularPages) }}
     <div class="card-grid">
-      {{ range .Paginator.Pages }}
+      {{ range $paginator.Pages }}
         <article class="card">
           {{ with .Params.cover }}<img src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}
           <h2><a href="{{ .RelPermalink }}" data-prefetch>{{ .Title }}</a></h2>
@@ -36,15 +37,16 @@
       {{ end }}
     </div>
     {{ partial "tag/cloud.html" . }}
-    {{ template "pagination" . }}
+    {{ template "pagination" (dict "Paginator" $paginator "Page" .) }}
   </section>
 {{ end }}
 
 {{ define "pagination" }}
-  {{ if gt .Paginator.TotalPages 1 }}
+  {{ $paginator := .Paginator }}
+  {{ if gt $paginator.TotalPages 1 }}
     <nav class="pagination" aria-label="Pagination">
-      {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}">Previous</a>{{ end }}
-      {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}">Next</a>{{ end }}
+      {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">Previous</a>{{ end }}
+      {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Next</a>{{ end }}
     </nav>
   {{ end }}
 {{ end }}

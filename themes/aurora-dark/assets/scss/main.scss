@@ -133,9 +133,34 @@ header.site-header .container {
 }
 
 .logo {
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--color-text);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
   text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo-first,
+.logo-last {
+  display: block;
+  letter-spacing: -0.02em;
+}
+
+.logo-first {
+  font-size: 1rem;
+}
+
+.logo-last {
+  font-size: 1.65rem;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  color: var(--color-link);
 }
 
 .nav-main {
@@ -180,7 +205,7 @@ header.site-header .container {
 
 .language-switcher {
   display: inline-flex;
-  gap: 0.25rem;
+  gap: 0.35rem;
   align-items: center;
   background: rgba(230, 237, 243, 0.08);
   padding: 0.35rem 0.65rem;
@@ -197,6 +222,11 @@ header.site-header .container {
 .language-switcher .active {
   color: var(--color-text);
   font-weight: 600;
+}
+
+.language-switcher .separator {
+  color: var(--color-text-muted);
+  margin-inline: 0.15rem;
 }
 
 .hero-split {
@@ -424,6 +454,10 @@ header.site-header .container {
   padding: 0;
   margin: 0;
   flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-text-muted);
 }
 
 .footer-meta {

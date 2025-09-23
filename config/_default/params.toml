@@ -1,6 +1,10 @@
-siteTitle = "Navigating Complexity"
+siteTitle = "Manuel Oswald"
 description = "Navigating complexity — from cloud transformations to the open sea."
-author = "Your Name"
+author = "Manuel Oswald"
+
+[branding]
+  firstName = "Manuel"
+  lastName = "Oswald"
 
 [hero]
   taglineDefault = "Navigating complexity — from cloud transformations to the open sea."

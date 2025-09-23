@@ -1,7 +1,9 @@
 [en]
 languageName = "English"
 weight = 1
-title = "Navigating Complexity"
+
+title = "Manuel Oswald"
+
 contentDir = "content"
   [en.params]
     locale = "en"
@@ -50,7 +52,9 @@ contentDir = "content"
 [de]
 languageName = "Deutsch"
 weight = 2
-title = "Komplexität navigieren"
+
+title = "Manuel Oswald"
+
 contentDir = "content/de"
   [de.params]
     locale = "de"
