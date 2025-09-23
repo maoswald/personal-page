@@ -1,0 +1,11 @@
+{{ $author := site.Params.author | default "Consultant" }}
+{{ if eq .Kind "home" }}
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@type" "Person" "name" $author "url" .Permalink "sameAs" (slice site.Params.social.linkedin site.Params.social.github site.Params.social.instagram) | jsonify }}
+</script>
+{{ else if or (eq .Kind "page") (eq .Kind "section") (eq .Kind "taxonomy") }}
+{{ else }}
+<script type="application/ld+json">
+{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "datePublished" (.PublishDate | default .Date | time.Format "2006-01-02") "author" (dict "@type" "Person" "name" $author) "url" .Permalink | jsonify }}
+</script>
+{{ end }}

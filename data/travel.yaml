@@ -1,0 +1,9 @@
+- title: "Spiekeroog Soundings"
+  summary: "North Sea tidal experiments with shallow-draft catamarans."
+  country: "Germany"
+  city: "Spiekeroog"
+  gps:
+    lat: 53.7700
+    lng: 7.7000
+  permalink: "/travel/spiekeroog-soundings/"
+  tags: ["sailing", "germany"]

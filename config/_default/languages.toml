@@ -1,0 +1,97 @@
+[en]
+languageName = "English"
+weight = 1
+title = "Manuel Oswald"
+contentDir = "content"
+  [en.params]
+    locale = "en"
+    heroTaglineIndex = 0
+  [[en.menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[en.menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 5
+  [[en.menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 10
+  [[en.menu.main]]
+    identifier = "travel"
+    name = "Travel"
+    url = "/travel/"
+    weight = 15
+  [[en.menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 20
+  [[en.menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 30
+  [[en.menu.footer]]
+    identifier = "impressum"
+    name = "Impressum"
+    url = "/impressum/"
+    weight = 1
+  [[en.menu.footer]]
+    identifier = "privacy"
+    name = "Privacy"
+    url = "/datenschutz/"
+    weight = 2
+
+[de]
+languageName = "Deutsch"
+weight = 2
+title = "Manuel Oswald"
+contentDir = "content/de"
+  [de.params]
+    locale = "de"
+    heroTaglineIndex = 0
+  [[de.menu.main]]
+    identifier = "home"
+    name = "Start"
+    url = "/de/"
+    weight = 1
+  [[de.menu.main]]
+    identifier = "about"
+    name = "Über mich"
+    url = "/de/about/"
+    weight = 5
+  [[de.menu.main]]
+    identifier = "projects"
+    name = "Projekte"
+    url = "/de/projects/"
+    weight = 10
+  [[de.menu.main]]
+    identifier = "travel"
+    name = "Reisen"
+    url = "/de/travel/"
+    weight = 15
+  [[de.menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/de/blog/"
+    weight = 20
+  [[de.menu.main]]
+    identifier = "contact"
+    name = "Kontakt"
+    url = "/de/contact/"
+    weight = 30
+  [[de.menu.footer]]
+    identifier = "impressum"
+    name = "Impressum"
+    url = "/de/impressum/"
+    weight = 1
+  [[de.menu.footer]]
+    identifier = "privacy"
+    name = "Datenschutz"
+    url = "/de/datenschutz/"
+    weight = 2
