@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <article class="container section" itemscope itemtype="https://schema.org/CreativeWork">
+    <header>
+      <h1>{{ .Title }}</h1>
+      <p class="section-subtitle">{{ .Params.summary }}</p>
+      <div class="tech-badges">
+        {{ range .Params.tech }}<span class="tech-badge">{{ . }}</span>{{ end }}
+      </div>
+    </header>
+    <div class="content" itemprop="text">
+      {{ .Content }}
+    </div>
+    <footer class="hero-meta">
+      {{ with .Params.repo }}<a class="button button-ghost" href="{{ . }}">GitHub</a>{{ end }}
+      {{ with .Params.external }}<a class="button button-primary" href="{{ . }}">Live demo</a>{{ end }}
+      <span class="badge">Status: {{ .Params.status | title }}</span>
+    </footer>
+  </article>
+{{ end }}

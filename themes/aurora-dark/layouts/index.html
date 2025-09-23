@@ -1,0 +1,94 @@
+{{ define "main" }}
+  {{ $hero := site.Params.hero }}
+  {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
+  {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
+  <section class="hero-split" aria-labelledby="identity-heading">
+    <div class="hero-pane hero-pane-tech">
+      <div class="hero-pane-inner">
+        <h1 id="identity-heading">IT Strategy &amp; Cloud Leadership</h1>
+        <p>{{ $tagline }}</p>
+        <div class="hero-meta">
+          <span class="badge">IT Transformation</span>
+          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
+          <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-pane hero-pane-sailing">
+      <div class="hero-pane-inner">
+        <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
+        <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
+        <div class="hero-meta">
+          <span class="badge">Sailing log</span>
+          <p>Read the latest travel stories and route experiments on the interactive map.</p>
+          <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ $latestPosts := first 6 (where .Site.RegularPages "Type" "post") }}
+  <section class="section" aria-labelledby="recent-posts">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="recent-posts">{{ i18n "recentPosts" }}</h2>
+        <a href="{{ "/blog/" | relLangURL }}">Blog</a>
+      </div>
+      <div class="card-grid">
+        {{ range $latestPosts }}
+          <article class="card">
+            {{ with .Params.cover }}<img src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}
+            <h3><a href="{{ .RelPermalink }}" data-prefetch>{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <p class="timeline-meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min</p>
+            <div class="tech-badges">
+              {{ range .Params.tags }}<span class="tag-chip">{{ . }}</span>{{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ $featured := first 1 (where .Site.RegularPages "Type" "project") }}
+  {{ with index $featured 0 }}
+    <section class="section" aria-labelledby="featured-project">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="featured-project">{{ i18n "featuredProject" }}</h2>
+          <a href="{{ "/projects/" | relLangURL }}">Projects</a>
+        </div>
+        <article class="card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Params.summary }}</p>
+          <div class="tech-badges">
+            {{ range .Params.tech }}<span class="tech-badge">{{ . }}</span>{{ end }}
+          </div>
+          <div class="hero-meta">
+            {{ with .Params.repo }}<a class="button button-ghost" href="{{ . }}">GitHub</a>{{ end }}
+            {{ with .Params.external }}<a class="button button-primary" href="{{ . }}">Demo</a>{{ end }}
+          </div>
+        </article>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ $travelPoints := first 3 (where .Site.RegularPages "Type" "travel") }}
+  <section class="section" aria-labelledby="map-teaser">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="map-teaser">{{ i18n "mapExplore" }}</h2>
+        <a href="{{ "/travel/" | relLangURL }}">Travel</a>
+      </div>
+      <div class="card-grid">
+        {{ range $travelPoints }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <p class="timeline-meta">{{ .Params.city }}, {{ .Params.country }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

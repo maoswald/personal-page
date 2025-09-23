@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}" class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="layout">
+    <a class="skip-link" href="#main">{{ i18n "skipToContent" }}</a>
+    {{ partial "cookie-consent.html" . }}
+    {{ partial "header.html" . }}
+    <main id="main" tabindex="-1">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

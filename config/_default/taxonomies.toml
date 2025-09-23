@@ -1,0 +1,7 @@
+[tag]
+name = "tags"
+plural = "tags"
+
+[category]
+name = "categories"
+plural = "categories"

@@ -1,0 +1,46 @@
+- id: readMore
+  translation: "Weiterlesen"
+- id: recentPosts
+  translation: "Aktuelle Gedanken"
+- id: featuredProject
+  translation: "Projekt im Fokus"
+- id: mapExplore
+  translation: "Karte entdecken"
+- id: searchPlaceholder
+  translation: "Suche nach Artikeln, Projekten, Reisen..."
+- id: searchSummary
+  translation: "{count} Ergebnis(se)"
+- id: searchNoResults
+  translation: "Keine passenden Einträge gefunden. Bitte anderen Begriff versuchen."
+- id: cookieTitle
+  translation: "Cookies & Analyse"
+- id: cookieDescription
+  translation: "Ich nutze datenschutzfreundliche Analysen, um den Traffic zu verstehen. Aktivieren?"
+- id: cookieAccept
+  translation: "Akzeptieren"
+- id: cookieDecline
+  translation: "Ablehnen"
+- id: affiliateDisclosure
+  translation: "Affiliate-Hinweis"
+- id: skipToContent
+  translation: "Zum Inhalt springen"
+- id: tagCloud
+  translation: "Schlagwortwolke"
+- id: formName
+  translation: "Name"
+- id: formEmail
+  translation: "E-Mail"
+- id: formMessage
+  translation: "Wie kann ich unterstützen?"
+- id: formSubmit
+  translation: "Nachricht senden"
+- id: contactThanks
+  translation: "Ich antworte in der Regel innerhalb von zwei Werktagen."
+- id: legalUpdated
+  translation: "Zuletzt aktualisiert"
+- id: servicesCta
+  translation: "Kennenlerngespräch buchen"
+- id: nowUpdated
+  translation: "Aktualisiert"
+- id: searchError
+  translation: "Suchindex kann gerade nicht geladen werden."
