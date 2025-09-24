@@ -5,7 +5,14 @@
         <span class="logo-first">{{ .firstName }}</span>
         <span class="logo-last">{{ .lastName }}</span>
       {{ else }}
-        <span class="logo-last">{{ site.Params.siteTitle }}</span>
+        {{ $title := site.Params.siteTitle | default site.Title }}
+        {{ $parts := split ($title | default "") " " }}
+        {{ if gt (len $parts) 0 }}
+          <span class="logo-first">{{ index $parts 0 }}</span>
+          <span class="logo-last">{{ if gt (len $parts) 1 }}{{ delimit (after 1 $parts) " " }}{{ else }}{{ index $parts 0 }}{{ end }}</span>
+        {{ else }}
+          <span class="logo-last">{{ site.Title }}</span>
+        {{ end }}
       {{ end }}
     </a>
     <nav class="nav-main" aria-label="Primary">

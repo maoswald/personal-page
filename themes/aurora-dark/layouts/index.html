@@ -2,6 +2,7 @@
   {{ $hero := site.Params.hero }}
   {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
   {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
+  {{ $lang := .Lang }}
   <section class="hero-split" aria-labelledby="identity-heading">
     <div class="hero-pane hero-pane-tech">
       <div class="hero-pane-inner">
@@ -26,8 +27,7 @@
       </div>
     </div>
   </section>
-
-  {{ $latestPosts := first 6 (where .Site.RegularPages "Type" "post") }}
+  {{ $latestPosts := first 6 (where (where .Site.RegularPages "Section" "blog") "Lang" $lang) }}
   <section class="section" aria-labelledby="recent-posts">
     <div class="container">
       <div class="section-header">
@@ -49,8 +49,7 @@
       </div>
     </div>
   </section>
-
-  {{ $featured := first 1 (where .Site.RegularPages "Type" "project") }}
+  {{ $featured := first 1 (where (where .Site.RegularPages "Section" "projects") "Lang" $lang) }}
   {{ with index $featured 0 }}
     <section class="section" aria-labelledby="featured-project">
       <div class="container">
@@ -72,8 +71,7 @@
       </div>
     </section>
   {{ end }}
-
-  {{ $travelPoints := first 3 (where .Site.RegularPages "Type" "travel") }}
+  {{ $travelPoints := first 3 (where (where .Site.RegularPages "Section" "travel") "Lang" $lang) }}
   <section class="section" aria-labelledby="map-teaser">
     <div class="container">
       <div class="section-header">
