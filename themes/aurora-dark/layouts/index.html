@@ -1,0 +1,110 @@
+{{ define "main" }}
+  {{ $hero := site.Params.hero }}
+  {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
+  {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
+  {{ $lang := .Lang }}
+  {{ $taglineParts := split $tagline "—" }}
+  {{ $leftTagline := trim (index $taglineParts 0 | default $tagline) " " }}
+  {{ $rightTagline := "" }}
+  {{ if ge (len $taglineParts) 2 }}
+    {{ $rightTagline = trim (index $taglineParts 1) " " }}
+  {{ end }}
+  <section class="hero-split" aria-labelledby="identity-heading">
+    <div class="hero-visual">
+      <div class="hero-visual-pane hero-visual-pane-left" aria-hidden="true"></div>
+      <div class="hero-visual-pane hero-visual-pane-right" aria-hidden="true"></div>
+      <h1 class="hero-visual-tagline" id="identity-heading" aria-label="{{ $tagline }}">
+        <span class="hero-visual-text hero-visual-text-left">{{ $leftTagline }}</span>
+        <span class="hero-visual-dash" aria-hidden="true">—</span>
+        <span class="hero-visual-text hero-visual-text-right">{{ if ne $rightTagline "" }}{{ $rightTagline }}{{ else }}{{ $leftTagline }}{{ end }}</span>
+      </h1>
+    </div>
+    <div class="hero-content">
+      <div class="hero-columns">
+        <div class="hero-column hero-column-tech">
+          <span class="badge">IT Transformation</span>
+          <h2>IT Strategy &amp; Cloud Leadership</h2>
+          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
+          <div class="hero-meta">
+            <p>Partner with teams to architect resilient delivery models, accelerate transformation, and tie technology decisions to measurable outcomes.</p>
+            <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+          </div>
+        </div>
+        <div class="hero-column hero-column-sailing">
+          <span class="badge">Sailing log</span>
+          <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
+          <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
+          <div class="hero-meta">
+            <p>Explore the latest travel stories, routes, and cultural notes plotted on the interactive map.</p>
+            <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ $latestPosts := first 6 (where (where .Site.RegularPages "Section" "blog") "Lang" $lang) }}
+  <section class="section" aria-labelledby="recent-posts">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="recent-posts">{{ i18n "recentPosts" }}</h2>
+        <a href="{{ "/blog/" | relLangURL }}">Blog</a>
+      </div>
+      <div class="card-grid">
+        {{ range $latestPosts }}
+          <article class="card">
+            {{ with .Params.cover }}<img src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}
+            <h3><a href="{{ .RelPermalink }}" data-prefetch>{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <p class="timeline-meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min</p>
+            <div class="tech-badges">
+              {{ range .Params.tags }}<span class="tag-chip">{{ . }}</span>{{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ $featured := first 1 (where (where .Site.RegularPages "Section" "projects") "Lang" $lang) }}
+  {{ with index $featured 0 }}
+    <section class="section" aria-labelledby="featured-project">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="featured-project">{{ i18n "featuredProject" }}</h2>
+          <a href="{{ "/projects/" | relLangURL }}">Projects</a>
+        </div>
+        <article class="card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p>{{ .Params.summary }}</p>
+          <div class="tech-badges">
+            {{ range .Params.tech }}<span class="tech-badge">{{ . }}</span>{{ end }}
+          </div>
+          <div class="hero-meta">
+            {{ with .Params.repo }}<a class="button button-ghost" href="{{ . }}">GitHub</a>{{ end }}
+            {{ with .Params.external }}<a class="button button-primary" href="{{ . }}">Demo</a>{{ end }}
+          </div>
+        </article>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ $travelPoints := first 3 (where (where .Site.RegularPages "Section" "travel") "Lang" $lang) }}
+  <section class="section" aria-labelledby="map-teaser">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="map-teaser">{{ i18n "mapExplore" }}</h2>
+        <a href="{{ "/travel/" | relLangURL }}">Travel</a>
+      </div>
+      <div class="card-grid">
+        {{ range $travelPoints }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ .Summary }}</p>
+            <p class="timeline-meta">{{ .Params.city }}, {{ .Params.country }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

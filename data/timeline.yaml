@@ -1,0 +1,52 @@
+- id: mechatronics
+  year: "2009"
+  role:
+    en: "Mechatronic Technician"
+    de: "Mechatroniker"
+  org: "Bavarian Manufacturing Cooperative"
+  summary:
+    en: "Learned to diagnose complex systems, balancing precision and pragmatism."
+    de: "Diagnose komplexer Systeme mit Blick für Präzision und Pragmatismus."
+  wins:
+    en: "Reduced downtime by 18% with predictive maintenance playbooks."
+    de: "Stillstandszeiten um 18 % durch vorausschauende Wartungskonzepte gesenkt."
+  tech: ["PLC", "Lean", "Safety"]
+- id: masters
+  year: "2015"
+  role:
+    en: "M.Sc. Computer Science"
+    de: "M.Sc. Informatik"
+  org: "Technische Universität München"
+  summary:
+    en: "Focused on cloud-native architectures, distributed systems, and socio-technical design."
+    de: "Schwerpunkt auf Cloud-Architektur, verteilten Systemen und soziotechnischem Design."
+  wins:
+    en: "Published research on adaptive control planes for hybrid workloads."
+    de: "Forschung zu adaptiven Control-Planes für hybride Workloads veröffentlicht."
+  tech: ["Kubernetes", "Go", "Systems"]
+- id: deloitte
+  year: "2017"
+  role:
+    en: "Cloud Transformation"
+    de: "Cloud Transformation"
+  org: "Deloitte Consulting"
+  summary:
+    en: "Leading multi-team programs for regulated enterprises adopting modern operating models."
+    de: "Leitung mehrerer Programmstränge für regulierte Unternehmen auf dem Weg zu modernen Betriebsmodellen."
+  wins:
+    en: "Cut lead time by 30% while increasing platform reliability to 99.95%."
+    de: "Durchsatz um 30 % gesteigert und Plattformverfügbarkeit auf 99,95 % erhöht."
+  tech: ["AWS", "Team Topologies", "SAFe"]
+- id: skipper
+  year: "2020"
+  role:
+    en: "Skipper & Offshore Instructor"
+    de: "Skipper & Offshore-Trainer"
+  org: "North Sea & Mediterranean"
+  summary:
+    en: "Coaching crews through uncertain waters, translating seamanship into leadership."
+    de: "Crewführung bei anspruchsvollen Bedingungen – Seemannschaft als Führungstraining."
+  wins:
+    en: "2000+ nautical miles, zero incidents, new rituals for retrospectives at sea."
+    de: "Über 2.000 sm ohne Zwischenfälle, neue Rituale für Retrospektiven auf See."
+  tech: ["Celestial", "Safety", "Coaching"]
