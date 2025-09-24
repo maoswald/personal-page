@@ -3,30 +3,46 @@
   {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
   {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
   {{ $lang := .Lang }}
+  {{ $taglineParts := split $tagline "—" }}
+  {{ $leftTagline := trim (index $taglineParts 0 | default $tagline) " " }}
+  {{ $rightTagline := "" }}
+  {{ if ge (len $taglineParts) 2 }}
+    {{ $rightTagline = trim (index $taglineParts 1) " " }}
+  {{ end }}
   <section class="hero-split" aria-labelledby="identity-heading">
-    <div class="hero-pane hero-pane-tech">
-      <div class="hero-pane-inner">
-        <h1 id="identity-heading">IT Strategy &amp; Cloud Leadership</h1>
-        <p>{{ $tagline }}</p>
-        <div class="hero-meta">
-          <span class="badge">IT Transformation</span>
-          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
-          <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
-        </div>
-      </div>
+    <div class="hero-visual">
+      <div class="hero-visual-pane hero-visual-pane-left" aria-hidden="true"></div>
+      <div class="hero-visual-pane hero-visual-pane-right" aria-hidden="true"></div>
+      <h1 class="hero-visual-tagline" id="identity-heading" aria-label="{{ $tagline }}">
+        <span class="hero-visual-text hero-visual-text-left">{{ $leftTagline }}</span>
+        <span class="hero-visual-dash" aria-hidden="true">—</span>
+        <span class="hero-visual-text hero-visual-text-right">{{ if ne $rightTagline "" }}{{ $rightTagline }}{{ else }}{{ $leftTagline }}{{ end }}</span>
+      </h1>
     </div>
-    <div class="hero-pane hero-pane-sailing">
-      <div class="hero-pane-inner">
-        <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
-        <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
-        <div class="hero-meta">
+    <div class="hero-content">
+      <div class="hero-columns">
+        <div class="hero-column hero-column-tech">
+          <span class="badge">IT Transformation</span>
+          <h2>IT Strategy &amp; Cloud Leadership</h2>
+          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
+          <div class="hero-meta">
+            <p>Partner with teams to architect resilient delivery models, accelerate transformation, and tie technology decisions to measurable outcomes.</p>
+            <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+          </div>
+        </div>
+        <div class="hero-column hero-column-sailing">
           <span class="badge">Sailing log</span>
-          <p>Read the latest travel stories and route experiments on the interactive map.</p>
-          <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+          <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
+          <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
+          <div class="hero-meta">
+            <p>Explore the latest travel stories, routes, and cultural notes plotted on the interactive map.</p>
+            <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
   {{ $latestPosts := first 6 (where (where .Site.RegularPages "Section" "blog") "Lang" $lang) }}
   <section class="section" aria-labelledby="recent-posts">
     <div class="container">
@@ -49,6 +65,7 @@
       </div>
     </div>
   </section>
+
   {{ $featured := first 1 (where (where .Site.RegularPages "Section" "projects") "Lang" $lang) }}
   {{ with index $featured 0 }}
     <section class="section" aria-labelledby="featured-project">
@@ -71,6 +88,7 @@
       </div>
     </section>
   {{ end }}
+
   {{ $travelPoints := first 3 (where (where .Site.RegularPages "Section" "travel") "Lang" $lang) }}
   <section class="section" aria-labelledby="map-teaser">
     <div class="container">
