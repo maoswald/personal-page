@@ -2,7 +2,7 @@
 languageName = "English"
 weight = 1
 title = "Manuel Oswald"
-contentDir = "content"
+contentDir = "content/en"
   [en.params]
     locale = "en"
     heroTaglineIndex = 1
