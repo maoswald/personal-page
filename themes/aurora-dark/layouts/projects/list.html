@@ -4,6 +4,7 @@
       <h1 id="projects">{{ .Title }}</h1>
       {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
     </header>
+
     {{ $pages := where .Pages "Lang" .Lang }}
     <div class="card-grid">
       {{ range $pages }}
