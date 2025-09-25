@@ -1,4 +1,6 @@
-{{- $pages := where site.RegularPages "Type" "in" site.Params.search.indexSections -}}
+{{- $site := .Site -}}
+{{- $indexSections := $site.Params.search.indexSections | default (slice) -}}
+{{- $pages := where $site.RegularPages "Type" "in" $indexSections -}}
 {{- $data := slice -}}
 {{- range $pages -}}
   {{- $doc := dict "title" .Title "summary" (.Summary | plainify) "permalink" .RelPermalink "tags" .Params.tags "section" .Section -}}
