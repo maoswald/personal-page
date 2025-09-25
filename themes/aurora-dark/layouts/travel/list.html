@@ -1,0 +1,71 @@
+{{ define "main" }}
+  {{ $mapParams := site.Params.map }}
+  {{ $points := slice }}
+  {{ $countries := slice }}
+  {{ $pages := where .Pages "Lang" .Lang }}
+  {{ range $pages }}
+    {{ $point := dict "title" .Title "summary" .Summary "city" .Params.city "country" .Params.country "permalink" .RelPermalink "tags" .Params.tags "gps" .Params.gps "map_zoom" .Params.map_zoom }}
+    {{ $points = $points | append $point }}
+    {{ if not (in $countries .Params.country) }}
+      {{ $countries = $countries | append .Params.country }}
+    {{ end }}
+  {{ end }}
+  {{ with site.Data.travel }}
+    {{ range . }}
+      {{ $points = $points | append . }}
+      {{ if not (in $countries .country) }}
+        {{ $countries = $countries | append .country }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $config := dict "tiles" $mapParams.tiles "attribution" $mapParams.attribution "center" $mapParams.defaultCenter "zoom" $mapParams.defaultZoom "points" $points }}
+  <section class="container section" aria-labelledby="travel">
+    <header>
+      <h1 id="travel">{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
+    </header>
+    <div id="travel-map" class="map-container" data-config='{{ $config | jsonify | safeHTMLAttr }}'></div>
+    <form class="map-filters" aria-label="Map filters">
+      <label>
+        <span>Search</span>
+        <input type="search" data-map-filter="search" placeholder="Harbor, tag, story" />
+      </label>
+      <label>
+        <span>Country</span>
+        <select data-map-filter="country">
+          <option value="all">All</option>
+          {{ range $countries }}
+            <option value="{{ . }}">{{ . }}</option>
+          {{ end }}
+        </select>
+      </label>
+      <fieldset data-map-filter="tags">
+        <legend>Tags</legend>
+        {{ $unique := slice }}
+        {{ range $points }}
+          {{ range .tags }}
+            {{ if not (in $unique .) }}
+              {{ $unique = $unique | append . }}
+              <label style="display:inline-flex;align-items:center;gap:0.35rem;">
+                <input type="checkbox" value="{{ . }}" />
+                <span>{{ . }}</span>
+              </label>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </fieldset>
+    </form>
+    <div data-travel-list class="card-grid"></div>
+    <noscript>
+      <h2>Destinations</h2>
+      <ul>
+        {{ range $pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Params.city }}, {{ .Params.country }}</li>
+        {{ end }}
+      </ul>
+    </noscript>
+    {{ if not (gt (len $pages) 0) }}
+      <p>{{ i18n "noEntries" }}</p>
+    {{ end }}
+  </section>
+{{ end }}

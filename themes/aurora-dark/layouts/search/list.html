@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <section class="container section" aria-labelledby="search">
+    <header>
+      <h1 id="search">{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
+    </header>
+    <div data-search-root data-index-url="{{ "search/index.json" | relLangURL }}" data-no-results="{{ i18n "searchNoResults" }}" data-summary-template="{{ i18n "searchSummary" }}" data-error-label="{{ i18n "searchError" }}">
+      <label>
+        <span class="sr-only">Search</span>
+        <input class="search-input" type="search" placeholder="{{ i18n "searchPlaceholder" }}" aria-describedby="search-summary" />
+      </label>
+      <p id="search-summary" data-search-summary>{{ i18n "searchSummary" | replace "{count}" "0" }}</p>
+      <div class="search-results" data-search-results></div>
+    </div>
+  </section>
+{{ end }}

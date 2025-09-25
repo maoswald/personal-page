@@ -1,0 +1,8 @@
+<div class="card" aria-labelledby="tag-cloud">
+  <h2 id="tag-cloud">{{ i18n "tagCloud" }}</h2>
+  <div class="tech-badges">
+    {{ range $.Site.Taxonomies.tags.ByCount }}
+      <a class="tag-chip" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+    {{ end }}
+  </div>
+</div>
