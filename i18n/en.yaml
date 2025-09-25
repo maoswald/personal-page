@@ -44,3 +44,15 @@
   translation: "Updated"
 - id: searchError
   translation: "Unable to load search index at the moment."
+- id: careerTimeline
+  translation: "Career timeline"
+- id: impactLabel
+  translation: "Impact"
+- id: skills
+  translation: "Skills"
+- id: education
+  translation: "Education"
+- id: certifications
+  translation: "Certifications"
+- id: noEntries
+  translation: "No entries available yet."

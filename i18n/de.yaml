@@ -44,3 +44,16 @@
   translation: "Aktualisiert"
 - id: searchError
   translation: "Suchindex kann gerade nicht geladen werden."
+- id: careerTimeline
+  translation: "Karriereverlauf"
+- id: impactLabel
+  translation: "Wirkung"
+- id: skills
+  translation: "Kompetenzen"
+- id: education
+  translation: "Ausbildung"
+- id: certifications
+  translation: "Zertifizierungen"
+- id: noEntries
+  translation: "Noch keine Einträge verfügbar."
+

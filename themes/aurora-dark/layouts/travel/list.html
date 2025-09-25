@@ -2,7 +2,8 @@
   {{ $mapParams := site.Params.map }}
   {{ $points := slice }}
   {{ $countries := slice }}
-  {{ range .Pages }}
+  {{ $pages := where .Pages "Lang" .Lang }}
+  {{ range $pages }}
     {{ $point := dict "title" .Title "summary" .Summary "city" .Params.city "country" .Params.country "permalink" .RelPermalink "tags" .Params.tags "gps" .Params.gps "map_zoom" .Params.map_zoom }}
     {{ $points = $points | append $point }}
     {{ if not (in $countries .Params.country) }}
@@ -58,10 +59,13 @@
     <noscript>
       <h2>Destinations</h2>
       <ul>
-        {{ range .Pages }}
+        {{ range $pages }}
           <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Params.city }}, {{ .Params.country }}</li>
         {{ end }}
       </ul>
     </noscript>
+    {{ if not (gt (len $pages) 0) }}
+      <p>{{ i18n "noEntries" }}</p>
+    {{ end }}
   </section>
 {{ end }}

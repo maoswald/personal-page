@@ -4,8 +4,10 @@
       <h1 id="projects">{{ .Title }}</h1>
       {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
     </header>
+
+    {{ $pages := where .Pages "Lang" .Lang }}
     <div class="card-grid">
-      {{ range .Pages }}
+      {{ range $pages }}
         <article class="card">
           <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
           <p>{{ .Params.summary }}</p>
@@ -18,6 +20,9 @@
             {{ with .Params.external }}<a class="button button-primary" href="{{ . }}">Live</a>{{ end }}
           </div>
         </article>
+      {{ end }}
+      {{ if not (gt (len $pages) 0) }}
+        <p>{{ i18n "noEntries" }}</p>
       {{ end }}
     </div>
   </section>
