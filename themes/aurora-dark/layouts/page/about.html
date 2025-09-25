@@ -1,0 +1,79 @@
+{{ define "main" }}
+  <article class="container section" itemscope itemtype="https://schema.org/AboutPage">
+    <header>
+      <h1 itemprop="headline">{{ .Title }}</h1>
+      <p class="section-subtitle">{{ .Params.summary }}</p>
+    </header>
+    <div class="content" itemprop="mainEntity">
+      {{ .Content }}
+    </div>
+
+    <section class="section" aria-labelledby="timeline">
+      <h2 class="section-title" id="timeline">Career timeline</h2>
+      <div class="timeline">
+        {{ range site.Data.timeline }}
+          <article class="timeline-item">
+            <h3>{{ index .role $.Lang }}</h3>
+            <p class="timeline-meta">{{ .year }} · {{ .org }}</p>
+            <p>{{ index .summary $.Lang }}</p>
+            <p><strong>Impact:</strong> {{ index .wins $.Lang }}</p>
+            <div class="tech-badges">
+              {{ range .tech }}<span class="tech-badge">{{ . }}</span>{{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    {{ with .Params.skills }}
+      <section class="section" aria-labelledby="skills">
+        <h2 class="section-title" id="skills">Skills</h2>
+        <div class="card-grid">
+          {{ range . }}
+            <article class="card">
+              <h3>{{ .name }}</h3>
+              <p>{{ .description }}</p>
+              <div class="tech-badges">
+                {{ range .keywords }}<span class="tech-badge">{{ . }}</span>{{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ with .Params.education }}
+      <section class="section" aria-labelledby="education">
+        <h2 class="section-title" id="education">Education</h2>
+        <div class="card-grid">
+          {{ range . }}
+            <article class="card">
+              <h3>{{ .title }}</h3>
+              <p class="timeline-meta">{{ .institution }} · {{ .year }}</p>
+              <p>{{ .notes }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ with .Params.certifications }}
+      <section class="section" aria-labelledby="certs">
+        <h2 class="section-title" id="certs">Certifications</h2>
+        <div class="card-grid">
+          {{ range . }}
+            <article class="card">
+              <h3>{{ .title }}</h3>
+              <p class="timeline-meta">{{ .issuer }} · {{ .year }}</p>
+              <p>{{ .summary }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ with .Params.cv }}
+      <p><a class="button button-primary" href="{{ .url }}">{{ .label }}</a></p>
+    {{ end }}
+  </article>
+{{ end }}

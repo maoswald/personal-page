@@ -1,0 +1,16 @@
+{{ $images := split (.Get "images") "," }}
+<div class="card-grid" data-gallery>
+  {{ range $images }}
+    {{ $img := trim . " " }}
+    {{ with resources.GetMatch (printf "images/%s" $img) }}
+      {{ $resized := .Fit "800x600" }}
+      <figure>
+        <img src="{{ $resized.RelPermalink }}" alt="" loading="lazy" />
+      </figure>
+    {{ else }}
+      <figure>
+        <img src="{{ $img | relURL }}" alt="" loading="lazy" />
+      </figure>
+    {{ end }}
+  {{ end }}
+</div>

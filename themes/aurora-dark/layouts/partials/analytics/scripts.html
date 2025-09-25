@@ -1,0 +1,13 @@
+{{ $analytics := site.Params.analytics }}
+{{ if eq $analytics.provider "plausible" }}
+  <script data-analytics-script type="text/plain" data-domain="{{ $analytics.plausibleDomain }}" src="https://plausible.io/js/script.js" defer></script>
+{{ else if eq $analytics.provider "ga4" }}
+  {{ with $analytics.ga4MeasurementId }}
+    <script data-analytics-script type="text/plain" async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+    <script data-analytics-script type="text/plain">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+      gtag('config', '{{ . }}');
+    </script>
+  {{ end }}
+{{ end }}

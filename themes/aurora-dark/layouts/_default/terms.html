@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <section class="container section" aria-labelledby="terms">
+    <header>
+      <h1 id="terms">{{ .Title }}</h1>
+    </header>
+    <div class="card-grid">
+      {{ range .Data.Terms.Alphabetical }}
+        <article class="card">
+          <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h2>
+          <p class="timeline-meta">{{ .Count }} {{ if eq .Count 1 }}item{{ else }}items{{ end }}</p>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
