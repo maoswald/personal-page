@@ -24,7 +24,9 @@
         </select>
       </label>
     </form>
-    {{ $paginator := .Paginate (.RegularPages) }}
+    {{ $posts := where .Site.RegularPages "Type" "post" }}
+    {{ $posts = where $posts "Lang" .Lang }}
+    {{ $paginator := .Paginate $posts }}
     <div class="card-grid">
       {{ range $paginator.Pages }}
         <article class="card">
