@@ -73,5 +73,10 @@
     {{ if not (gt (len $pages) 0) }}
       <p>{{ i18n "noEntries" }}</p>
     {{ end }}
+    {{ with .Content }}
+      <div class="content">
+        {{ . }}
+      </div>
+    {{ end }}
   </section>
 {{ end }}
