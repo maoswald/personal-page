@@ -4,8 +4,13 @@
       <h1 id="projects">{{ .Title }}</h1>
       {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
     </header>
-
-    {{ $pages := where .Pages "Lang" .Lang }}
+    {{ $lang := .Language.Lang }}
+    {{ $defaultLang := site.Params.defaultLanguage | default $lang }}
+    {{ $allProjects := where .Site.RegularPages "Type" "project" }}
+    {{ $pages := where $allProjects "Lang" $lang }}
+    {{ if and (ne $lang $defaultLang) (lt (len $pages) 1) }}
+      {{ $pages = where $allProjects "Lang" $defaultLang }}
+    {{ end }}
     <div class="card-grid">
       {{ range $pages }}
         <article class="card">

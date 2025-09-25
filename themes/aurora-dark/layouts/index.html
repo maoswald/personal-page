@@ -2,7 +2,8 @@
   {{ $hero := site.Params.hero }}
   {{ $langIndex := .Site.Language.Params.heroTaglineIndex | default 0 }}
   {{ $tagline := index $hero.taglines $langIndex | default $hero.taglineDefault }}
-  {{ $lang := .Lang }}
+  {{ $lang := .Language.Lang }}
+  {{ $defaultLang := site.Params.defaultLanguage | default $lang }}
   {{ $taglineParts := split $tagline "—" }}
   {{ $leftTagline := trim (index $taglineParts 0 | default $tagline) " " }}
   {{ $rightTagline := "" }}
@@ -43,7 +44,12 @@
     </div>
   </section>
 
-  {{ $latestPosts := first 6 (where (where .Site.RegularPages "Section" "blog") "Lang" $lang) }}
+  {{ $allPosts := where .Site.RegularPages "Type" "post" }}
+  {{ $latestLocalized := where $allPosts "Lang" $lang }}
+  {{ if and (ne $lang $defaultLang) (lt (len $latestLocalized) 1) }}
+    {{ $latestLocalized = where $allPosts "Lang" $defaultLang }}
+  {{ end }}
+  {{ $latestPosts := first 6 $latestLocalized }}
   <section class="section" aria-labelledby="recent-posts">
     <div class="container">
       <div class="section-header">
@@ -66,7 +72,12 @@
     </div>
   </section>
 
-  {{ $featured := first 1 (where (where .Site.RegularPages "Section" "projects") "Lang" $lang) }}
+  {{ $allProjects := where .Site.RegularPages "Type" "project" }}
+  {{ $projectsLocalized := where $allProjects "Lang" $lang }}
+  {{ if and (ne $lang $defaultLang) (lt (len $projectsLocalized) 1) }}
+    {{ $projectsLocalized = where $allProjects "Lang" $defaultLang }}
+  {{ end }}
+  {{ $featured := first 1 $projectsLocalized }}
   {{ with index $featured 0 }}
     <section class="section" aria-labelledby="featured-project">
       <div class="container">
@@ -89,7 +100,12 @@
     </section>
   {{ end }}
 
-  {{ $travelPoints := first 3 (where (where .Site.RegularPages "Section" "travel") "Lang" $lang) }}
+  {{ $allTravel := where .Site.RegularPages "Type" "travel" }}
+  {{ $travelLocalized := where $allTravel "Lang" $lang }}
+  {{ if and (ne $lang $defaultLang) (lt (len $travelLocalized) 1) }}
+    {{ $travelLocalized = where $allTravel "Lang" $defaultLang }}
+  {{ end }}
+  {{ $travelPoints := first 3 $travelLocalized }}
   <section class="section" aria-labelledby="map-teaser">
     <div class="container">
       <div class="section-header">

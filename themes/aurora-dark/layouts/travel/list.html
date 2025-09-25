@@ -2,7 +2,13 @@
   {{ $mapParams := site.Params.map }}
   {{ $points := slice }}
   {{ $countries := slice }}
-  {{ $pages := where .Pages "Lang" .Lang }}
+  {{ $lang := .Language.Lang }}
+  {{ $defaultLang := site.Params.defaultLanguage | default $lang }}
+  {{ $allTravel := where .Site.RegularPages "Type" "travel" }}
+  {{ $pages := where $allTravel "Lang" $lang }}
+  {{ if and (ne $lang $defaultLang) (lt (len $pages) 1) }}
+    {{ $pages = where $allTravel "Lang" $defaultLang }}
+  {{ end }}
   {{ range $pages }}
     {{ $point := dict "title" .Title "summary" .Summary "city" .Params.city "country" .Params.country "permalink" .RelPermalink "tags" .Params.tags "gps" .Params.gps "map_zoom" .Params.map_zoom }}
     {{ $points = $points | append $point }}
