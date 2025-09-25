@@ -11,7 +11,7 @@
   {{ partial "seo/jsonld.html" . }}
   {{ with resources.Get "css/main.css" }}
     {{ $postcssOptions := dict "config" "postcss.config.cjs" "noMap" hugo.IsProduction }}
-    {{ $style := . | css.PostCSS $postcssOptions }}
+    {{ $style := . | postCSS $postcssOptions }}
     {{ if hugo.IsProduction }}
       {{ $style = $style | minify }}
     {{ end }}
