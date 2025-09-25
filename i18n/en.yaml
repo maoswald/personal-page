@@ -56,3 +56,19 @@
   translation: "Certifications"
 - id: noEntries
   translation: "No entries available yet."
+- id: heroTechTitle
+  translation: "IT Strategy & Cloud Leadership"
+- id: heroTechLead
+  translation: "Shaping modern platforms that keep teams aligned and delivery resilient."
+- id: heroTechMeta
+  translation: "Let's connect on transformation, leadership, and pragmatic roadmaps."
+- id: heroTechCta
+  translation: "About Manuel"
+- id: heroSailTitle
+  translation: "Sailing, Travel & Cultural Curiosity"
+- id: heroSailLead
+  translation: "Charting bluewater voyages and sharing the lessons tides and crews teach."
+- id: heroSailMeta
+  translation: "Follow new log entries, routes, and cultural finds from each passage."
+- id: heroSailCta
+  translation: "Travel map"

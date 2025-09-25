@@ -23,21 +23,19 @@
     <div class="hero-content">
       <div class="hero-columns">
         <div class="hero-column hero-column-tech">
-          <span class="badge">IT Transformation</span>
-          <h2>IT Strategy &amp; Cloud Leadership</h2>
-          <p>Guiding organizations through cloud-native modernization, platform strategy, and resilient delivery models.</p>
+          <h2>{{ i18n "heroTechTitle" }}</h2>
+          <p>{{ i18n "heroTechLead" }}</p>
           <div class="hero-meta">
-            <p>Partner with teams to architect resilient delivery models, accelerate transformation, and tie technology decisions to measurable outcomes.</p>
-            <a class="button button-primary" href="{{ "/services/" | relLangURL }}">Services</a>
+            <p>{{ i18n "heroTechMeta" }}</p>
+            <a class="button button-primary" href="{{ "/about/" | relLangURL }}">{{ i18n "heroTechCta" }}</a>
           </div>
         </div>
         <div class="hero-column hero-column-sailing">
-          <span class="badge">Sailing log</span>
-          <h2>Sailing, Travel &amp; Cultural Curiosity</h2>
-          <p>Skippering bluewater adventures while documenting winds, waypoints, and global cultures that shape resilient leadership.</p>
+          <h2>{{ i18n "heroSailTitle" }}</h2>
+          <p>{{ i18n "heroSailLead" }}</p>
           <div class="hero-meta">
-            <p>Explore the latest travel stories, routes, and cultural notes plotted on the interactive map.</p>
-            <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">Travel map</a>
+            <p>{{ i18n "heroSailMeta" }}</p>
+            <a class="button button-ghost" href="{{ "/travel/" | relLangURL }}">{{ i18n "heroSailCta" }}</a>
           </div>
         </div>
       </div>
@@ -49,7 +47,7 @@
   {{ if and (ne $lang $defaultLang) (lt (len $latestLocalized) 1) }}
     {{ $latestLocalized = where $allPosts "Lang" $defaultLang }}
   {{ end }}
-  {{ $latestPosts := first 6 $latestLocalized }}
+  {{ $latestPosts := first 1 $latestLocalized }}
   <section class="section" aria-labelledby="recent-posts">
     <div class="container">
       <div class="section-header">

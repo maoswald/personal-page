@@ -56,4 +56,20 @@
   translation: "Zertifizierungen"
 - id: noEntries
   translation: "Noch keine Einträge verfügbar."
+- id: heroTechTitle
+  translation: "IT-Strategie & Cloud-Führung"
+- id: heroTechLead
+  translation: "Ich gestalte moderne Plattformen, die Teams ausrichten und verlässliche Lieferung ermöglichen."
+- id: heroTechMeta
+  translation: "Lass uns über Transformation, Führung und pragmatische Roadmaps sprechen."
+- id: heroTechCta
+  translation: "Über Manuel"
+- id: heroSailTitle
+  translation: "Segeln, Reisen & kulturelle Neugier"
+- id: heroSailLead
+  translation: "Ich segle Blauwasser-Törns und teile die Lektionen, die Gezeiten und Crews vermitteln."
+- id: heroSailMeta
+  translation: "Verfolge neue Logbucheinträge, Routen und kulturelle Entdeckungen jeder Passage."
+- id: heroSailCta
+  translation: "Reisekarte"
 
