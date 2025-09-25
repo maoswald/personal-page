@@ -1,0 +1,13 @@
+<script>document.documentElement.classList.remove('no-js');</script>
+<script src="/js/elasticlunr.min.js" defer></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-yojG3Ejj6+UeJ8V+RaH//RUW2KIiMzFxLpy0X58F3RrgPf63HgNbUsVTNff7kwhz" crossorigin="anonymous" defer></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-oUtnyteWPZMhUlCT3VkOITkkpFmS6r30YIOCwVDDDeWGPAHDq6cNruM3aMcMBXN7" crossorigin="anonymous" defer></script>
+{{ with resources.Get "js/main.js" }}
+  {{ $script := . | js.Build (dict "target" "es2018" "format" "esm") }}
+  {{ if hugo.IsProduction }}
+    {{ $script = $script | minify }}
+  {{ end }}
+  {{ $script = $script | fingerprint "sha384" }}
+  <script type="module" src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+{{ partial "analytics/scripts.html" . }}

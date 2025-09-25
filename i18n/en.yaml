@@ -1,0 +1,58 @@
+- id: readMore
+  translation: "Read more"
+- id: recentPosts
+  translation: "Latest reflections"
+- id: featuredProject
+  translation: "Featured project"
+- id: mapExplore
+  translation: "Explore the map"
+- id: searchPlaceholder
+  translation: "Search articles, projects, travel..."
+- id: searchSummary
+  translation: "{count} result(s)"
+- id: searchNoResults
+  translation: "No matching entries yet. Try another keyword."
+- id: cookieTitle
+  translation: "Cookies & analytics"
+- id: cookieDescription
+  translation: "I use privacy-friendly analytics to understand traffic. Enable them?"
+- id: cookieAccept
+  translation: "Accept"
+- id: cookieDecline
+  translation: "Decline"
+- id: affiliateDisclosure
+  translation: "Affiliate disclosure"
+- id: skipToContent
+  translation: "Skip to main content"
+- id: tagCloud
+  translation: "Tag cloud"
+- id: formName
+  translation: "Name"
+- id: formEmail
+  translation: "Email"
+- id: formMessage
+  translation: "How can I help?"
+- id: formSubmit
+  translation: "Send message"
+- id: contactThanks
+  translation: "I usually reply within two business days."
+- id: legalUpdated
+  translation: "Last updated"
+- id: servicesCta
+  translation: "Book a discovery call"
+- id: nowUpdated
+  translation: "Updated"
+- id: searchError
+  translation: "Unable to load search index at the moment."
+- id: careerTimeline
+  translation: "Career timeline"
+- id: impactLabel
+  translation: "Impact"
+- id: skills
+  translation: "Skills"
+- id: education
+  translation: "Education"
+- id: certifications
+  translation: "Certifications"
+- id: noEntries
+  translation: "No entries available yet."

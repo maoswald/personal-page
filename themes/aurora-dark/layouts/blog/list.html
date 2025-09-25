@@ -1,0 +1,54 @@
+{{ define "main" }}
+  <section class="container section" aria-labelledby="blog">
+    <header>
+      <h1 id="blog">{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
+    </header>
+    <form class="map-filters" role="search">
+      <label>
+        <span>Tag</span>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">All tags</option>
+          {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+            <option value="{{ (print "/tags/" (urlize $name) "/") | relLangURL }}">{{ $name }} ({{ len $taxonomy }})</option>
+          {{ end }}
+        </select>
+      </label>
+      <label>
+        <span>Category</span>
+        <select onchange="if(this.value) window.location.href=this.value;">
+          <option value="">All categories</option>
+          {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+            <option value="{{ (print "/categories/" (urlize $name) "/") | relLangURL }}">{{ $name }} ({{ len $taxonomy }})</option>
+          {{ end }}
+        </select>
+      </label>
+    </form>
+    {{ $posts := where .Site.RegularPages "Type" "post" }}
+    {{ $posts = where $posts "Lang" .Lang }}
+    {{ $paginator := .Paginate $posts }}
+    <div class="card-grid">
+      {{ range $paginator.Pages }}
+        <article class="card">
+          {{ with .Params.cover }}<img src="{{ . | relURL }}" alt="" loading="lazy" />{{ end }}
+          <h2><a href="{{ .RelPermalink }}" data-prefetch>{{ .Title }}</a></h2>
+          <p>{{ .Summary }}</p>
+          <p class="timeline-meta">{{ .Date.Format "02 Jan 2006" }} · {{ .ReadingTime }} min</p>
+          <div class="tech-badges">{{ range .Params.tags }}<span class="tag-chip">{{ . }}</span>{{ end }}</div>
+        </article>
+      {{ end }}
+    </div>
+    {{ partial "tag/cloud.html" . }}
+    {{ template "pagination" (dict "Paginator" $paginator "Page" .) }}
+  </section>
+{{ end }}
+
+{{ define "pagination" }}
+  {{ $paginator := .Paginator }}
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination" aria-label="Pagination">
+      {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">Previous</a>{{ end }}
+      {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Next</a>{{ end }}
+    </nav>
+  {{ end }}
+{{ end }}

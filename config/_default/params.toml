@@ -1,0 +1,55 @@
+siteTitle = "Manuel Oswald"
+defaultLanguage = "en"
+description = "Navigating complexity — from cloud transformations to the open sea."
+author = "Manuel Oswald"
+
+[branding]
+  firstName = "Manuel"
+  lastName = "Oswald"
+
+[hero]
+  taglineDefault = "Navigating complexity — from cloud transformations to the open sea."
+  taglines = [
+    "Navigating complexity — from cloud transformations to the open sea.",
+    "Where strategy meets systems — and leadership meets the ocean.",
+    "Connecting people, technology, and experiences that move forward.",
+    "Exploring complexity — in cloud, code, and across the world.",
+    "From IT transformation to global horizons — curiosity connects it all.",
+    "Bridging strategy, systems, and stories from every journey."
+  ]
+
+[social]
+  instagram = "https://instagram.com/yourhandle"
+  github = "https://github.com/yourhandle"
+  buymeacoffee = "https://www.buymeacoffee.com/yourhandle"
+  linkedin = "https://www.linkedin.com/in/yourhandle"
+
+[analytics]
+  provider = "plausible"
+  plausibleDomain = "example.com" # Replace with your Plausible domain
+  ga4MeasurementId = "G-XXXXXXXXXX" # Optional GA4 measurement ID
+
+[cookieConsent]
+  enabled = true
+
+[map]
+  tiles = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  attribution = "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors"
+  defaultCenter = [53.5511, 9.9937]
+  defaultZoom = 4
+
+[affiliate]
+  disclosureText = "Some links may be affiliate links. If you click and purchase, I may receive a small commission at no extra cost to you."
+
+[gallery]
+  scope = "both"
+
+[services]
+  bookingUrl = "mailto:hello@example.com"
+
+[search]
+  enable = true
+  indexSections = ["post", "project", "travel"]
+
+[performance]
+  enablePrefetch = true

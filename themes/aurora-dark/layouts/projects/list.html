@@ -1,0 +1,34 @@
+{{ define "main" }}
+  <section class="container section" aria-labelledby="projects">
+    <header>
+      <h1 id="projects">{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="section-subtitle">{{ . }}</p>{{ end }}
+    </header>
+    {{ $lang := .Language.Lang }}
+    {{ $defaultLang := site.Params.defaultLanguage | default $lang }}
+    {{ $allProjects := where .Site.RegularPages "Type" "project" }}
+    {{ $pages := where $allProjects "Lang" $lang }}
+    {{ if and (ne $lang $defaultLang) (lt (len $pages) 1) }}
+      {{ $pages = where $allProjects "Lang" $defaultLang }}
+    {{ end }}
+    <div class="card-grid">
+      {{ range $pages }}
+        <article class="card">
+          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <p>{{ .Params.summary }}</p>
+          <div class="tech-badges">
+            {{ range .Params.tech }}<span class="tech-badge">{{ . }}</span>{{ end }}
+          </div>
+          <p class="timeline-meta">Status: {{ .Params.status | title }}</p>
+          <div class="hero-meta">
+            {{ with .Params.repo }}<a class="button button-ghost" href="{{ . }}">Repository</a>{{ end }}
+            {{ with .Params.external }}<a class="button button-primary" href="{{ . }}">Live</a>{{ end }}
+          </div>
+        </article>
+      {{ end }}
+      {{ if not (gt (len $pages) 0) }}
+        <p>{{ i18n "noEntries" }}</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,4 @@
+baseURL = "https://maoswald.github.io/personal-page/"
+
+[minify]
+  minifyOutput = true
