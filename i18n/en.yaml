@@ -65,10 +65,10 @@
 - id: heroTechCta
   translation: "About Manuel"
 - id: heroSailTitle
-  translation: "Sailing, Travel & Cultural Curiosity"
+  translation: "Sailing, Travel & Technology"
 - id: heroSailLead
-  translation: "Charting bluewater voyages and sharing the lessons tides and crews teach."
+  translation: "Charting bluewater voyages and sharing lessons from every passage."
 - id: heroSailMeta
-  translation: "Follow new log entries, routes, and cultural finds from each passage."
+  translation: "Track fresh log entries, streamlined routes, and discoveries along the way."
 - id: heroSailCta
   translation: "Travel map"
