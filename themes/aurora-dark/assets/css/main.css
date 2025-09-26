@@ -226,7 +226,7 @@ header.site-header .container {
 .hero-split {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(88vh - var(--header-height));
   width: 100%;
 }
 
@@ -234,7 +234,7 @@ header.site-header .container {
   position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  min-height: clamp(520px, 72vh, 820px);
+  min-height: clamp(420px, 60vh, 680px);
   isolation: isolate;
 }
 
@@ -329,7 +329,7 @@ header.site-header .container {
 .hero-content {
   position: relative;
   z-index: 1;
-  padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 4.25rem);
+  padding: clamp(1.85rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem) clamp(2.25rem, 5vw, 3.25rem);
   background: linear-gradient(180deg, rgba(11, 15, 20, 0.98) 0%, rgb(8, 15, 24) 100%);
   border-top: 1px solid rgba(127, 176, 255, 0.14);
   box-shadow: 0 -24px 48px rgba(4, 10, 18, 0.55);
@@ -387,14 +387,14 @@ header.site-header .container {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 2.75rem 0;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .section-title {
@@ -409,7 +409,7 @@ header.site-header .container {
 
 .card-grid {
   display: grid;
-  gap: 1.75rem;
+  gap: 1.25rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
