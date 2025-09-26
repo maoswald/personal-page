@@ -359,6 +359,13 @@ header.site-header .container {
   max-width: 480px;
 }
 
+.hero-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .hero-column-tech {
   justify-self: start;
 }
