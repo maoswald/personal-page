@@ -340,27 +340,23 @@ header.site-header .container {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
+  justify-items: center;
 }
 
 .hero-column {
   display: grid;
   gap: 1rem;
   max-width: 480px;
+  justify-items: center;
+  text-align: center;
 }
 
 .hero-heading {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-.hero-column-tech {
-  justify-self: start;
-}
-
-.hero-column-sailing {
-  justify-self: end;
 }
 
 .hero-column h2 {
