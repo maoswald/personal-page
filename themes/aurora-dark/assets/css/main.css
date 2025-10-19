@@ -351,14 +351,66 @@ header.site-header .container {
   text-align: center;
 }
 
+.hero-column-tech {
+  justify-items: end;
+  text-align: right;
+}
+
+.hero-column-sailing {
+  justify-items: start;
+  text-align: left;
+}
+
 .hero-heading {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1vw, 1.35rem);
+  flex-wrap: nowrap;
 }
 
+.hero-heading-tech {
+  justify-content: flex-end;
+}
+
+.hero-heading-sailing {
+  justify-content: flex-start;
+}
+
+.hero-heading-tech h2 {
+  text-align: right;
+}
+
+.hero-heading-sailing h2 {
+  text-align: left;
+}
+
+.hero-heading-divider {
+  display: inline-flex;
+  align-self: stretch;
+  width: 1px;
+  min-height: 2.5rem;
+  background: rgba(230, 237, 243, 0.35);
+}
+
+@media (max-width: 720px) {
+  .hero-column {
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-heading {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-heading-divider {
+    display: none;
+  }
+  .hero-heading h2,
+  .hero-heading-tech h2,
+  .hero-heading-sailing h2 {
+    text-align: center;
+  }
+}
 .hero-column h2 {
   margin: 0;
   font-size: clamp(2.15rem, 1.8rem + 1.8vw, 2.85rem);
