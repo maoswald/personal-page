@@ -340,22 +340,77 @@ header.site-header .container {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: start;
+  justify-items: center;
 }
 
 .hero-column {
   display: grid;
   gap: 1rem;
   max-width: 480px;
+  justify-items: center;
+  text-align: center;
 }
 
 .hero-column-tech {
-  justify-self: start;
+  justify-items: end;
+  text-align: right;
 }
 
 .hero-column-sailing {
-  justify-self: end;
+  justify-items: start;
+  text-align: left;
 }
 
+.hero-heading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 1vw, 1.35rem);
+  flex-wrap: nowrap;
+}
+
+.hero-heading-tech {
+  justify-content: flex-end;
+}
+
+.hero-heading-sailing {
+  justify-content: flex-start;
+}
+
+.hero-heading-tech h2 {
+  text-align: right;
+}
+
+.hero-heading-sailing h2 {
+  text-align: left;
+}
+
+.hero-heading-divider {
+  display: inline-flex;
+  align-self: stretch;
+  width: 1px;
+  min-height: 2.5rem;
+  background: rgba(230, 237, 243, 0.35);
+}
+
+@media (max-width: 720px) {
+  .hero-column {
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-heading {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-heading-divider {
+    display: none;
+  }
+  .hero-heading h2,
+  .hero-heading-tech h2,
+  .hero-heading-sailing h2 {
+    text-align: center;
+  }
+}
 .hero-column h2 {
   margin: 0;
   font-size: clamp(2.15rem, 1.8rem + 1.8vw, 2.85rem);

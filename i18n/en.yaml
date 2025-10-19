@@ -63,7 +63,7 @@
 - id: heroTechMeta
   translation: "Let's connect on transformation, leadership, and pragmatic roadmaps."
 - id: heroTechCta
-  translation: "About Manuel"
+  translation: "About Me"
 - id: heroSailTitle
   translation: "Sailing, Travel & Technology"
 - id: heroSailLead
@@ -71,4 +71,4 @@
 - id: heroSailMeta
   translation: "Track fresh log entries, streamlined routes, and discoveries along the way."
 - id: heroSailCta
-  translation: "Travel map"
+  translation: "Travel Map"
